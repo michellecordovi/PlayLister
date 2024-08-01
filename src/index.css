@@ -23,7 +23,7 @@ nav {
     height: 20%;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
 
     #login-button {
         width: auto;
@@ -42,6 +42,31 @@ nav {
         
         img {
             height: 26px;
+        }
+    }
+
+    .theme-adjuster {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.25rem;
+
+        #theme-toggler {
+            height: 50px;
+            width: 100px;
+            padding: 10px 5px;
+            background-color: #2C344B;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            #toggle-ball{
+                height: 40px;
+                width: 40px;
+                background-color: white;
+                border-radius: 100%;
+            }
         }
     }
 }
