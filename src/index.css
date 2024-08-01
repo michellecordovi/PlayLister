@@ -1,6 +1,72 @@
+/* UNIVERSAL STYLES */
 * {
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
     color: white;
+}
+
+h1 {
+    font-size: 100px;
+    letter-spacing: 1.25rem;
+    margin-bottom: 30px;
+}
+
+h2{
+    font-size: 2rem;
+    letter-spacing: 0.5rem;
+    font-weight: 400;
+}
+
+/* NAV BAR */
+nav {
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    #login-button {
+        width: auto;
+        height: 50px;
+        padding: 1.5rem;
+        font-size: 1rem;
+        background-color: black;
+        color: white;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        border-radius: 40px;
+        cursor: pointer;
+        
+        img {
+            height: 26px;
+        }
+    }
+}
+
+
+/* BANNER */
+#banner{
+    height: 80%;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+}
+
+
+/* SEARCH BOX */
+form {
+    justify-self: center;
+}
+
+#searchInput {
+    padding: 5px 30px;
+    background-color:#2C344B;
+    color: white;
+    font-size: 18px;
+    height: 60px;
+    width: 350px;
+    border-radius: 30px;
+    border: none;
 }
