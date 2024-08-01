@@ -14,7 +14,7 @@ h1 {
 
 h2{
     font-size: 2rem;
-    letter-spacing: 0.5rem;
+    letter-spacing: 0.75rem;
     font-weight: 400;
 }
 
@@ -58,15 +58,28 @@ nav {
 /* SEARCH BOX */
 form {
     justify-self: center;
-}
 
-#searchInput {
-    padding: 5px 30px;
-    background-color:#2C344B;
-    color: white;
-    font-size: 18px;
-    height: 60px;
-    width: 350px;
-    border-radius: 30px;
-    border: none;
+    #searchInput,
+    #searchInputSubmit {
+        height: 60px;
+        font-size: 18px;
+        padding: 5px 30px;
+        border-radius: 30px;
+        border: none;
+    }
+
+    #searchInput {
+        background-color:#2C344B;
+        width: 350px;
+        box-shadow: 0px 0px 10px #2C344B;
+
+    }
+
+    #searchInputSubmit{
+        margin-left: 1rem;
+        background-color: #35e6ae;
+        letter-spacing: 0.30rem;
+        font-weight: 600;
+        box-shadow: 0px 0px 10px #2C344B;
+    }
 }
