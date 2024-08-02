@@ -1,6 +1,7 @@
 function Playlist(){
     return (
-        <section className="playlist-section"></section>
+        <section className="playlist-section">
+        </section>
     )
 }
 

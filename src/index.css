@@ -19,9 +19,15 @@ h1 {
 }
 
 h2{
-    font-size: 1.75rem;
+    font-size: 1.8rem;
     letter-spacing: 0.75rem;
     font-weight: 400;
+}
+
+h3{
+    font-size: 1.75rem;
+    text-align: center;
+    font-weight: 600;
 }
 
 /* Header */
@@ -144,7 +150,8 @@ main {
 .results-section,
 .playlist-section {
     height: 90%;
-    width: 80%;
+    width: 75%;
+    padding: 1rem;
     background-color: #2C344B;
     border-radius: 1rem;
 }
