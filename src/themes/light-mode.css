@@ -29,6 +29,7 @@ header{
 /* SEARCH BAR */
 #searchInput {
     background-color:#2C344B;
+    color: white;
     box-shadow: 0px 0px 10px #2C344B;
 }
 
