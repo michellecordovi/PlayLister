@@ -1,0 +1,45 @@
+body {
+    color: #121725;
+    background-color: white;
+}
+
+/* HEADER */
+
+header{
+    background-image: url('/images/banner-background-light.jpg');
+}
+
+
+/* NAVIGATION */
+#login-button {
+    background-color: #2C344B;
+    color: white;
+}
+
+.theme-toggler{
+    background-color: white;
+
+    #toggle-ball{
+        background-color: #35e6ae;
+    }
+}
+
+
+
+/* SEARCH BAR */
+#searchInput {
+    background-color:#2C344B;
+    box-shadow: 0px 0px 10px #2C344B;
+}
+
+#searchInputSubmit{
+    background-color: #35e6ae;
+    box-shadow: 0px 0px 10px #2C344B;
+}
+
+
+/* RESULTS SECTION */
+.results-section,
+.playlist-section {
+    background-color: #dde7e4;
+}

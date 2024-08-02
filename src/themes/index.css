@@ -6,8 +6,6 @@
 }
 
 body {
-    color: white;
-    background-color: #121725;
     font-family: Montserrat, Arial, Helvetica, sans-serif;
 }
 
@@ -34,7 +32,6 @@ h3{
 header{
     height: 80vh;
     padding: 25px 50px;
-    background-image: url('/images/banner-background.jpg');
     background-size: cover;
     background-position: center;
 }
@@ -51,9 +48,7 @@ nav {
         height: 50px;
         padding: 1.5rem;
         font-size: 1rem;
-        background-color: #2C344B;
         border: none;
-        color: white;
         display:flex;
         align-items: center;
         justify-content: center;
@@ -76,7 +71,6 @@ nav {
             height: 50px;
             width: 100px;
             padding: 10px 5px;
-            background-color: #2C344B;
             border-radius: 30px;
             display: flex;
             align-items: center;
@@ -86,7 +80,6 @@ nav {
             #toggle-ball{
                 height: 40px;
                 width: 40px;
-                background-color: white;
                 border-radius: 100%;
             }
         }
@@ -121,18 +114,13 @@ form {
     }
 
     #searchInput {
-        background-color:#2C344B;
         width: 350px;
-        box-shadow: 0px 0px 10px #2C344B;
-
     }
 
     #searchInputSubmit{
         margin-left: 1rem;
-        background-color: #35e6ae;
         letter-spacing: 0.30rem;
         font-weight: 600;
-        box-shadow: 0px 0px 10px #2C344B;
         cursor: pointer;
     }
 }
@@ -152,6 +140,5 @@ main {
     height: 90%;
     width: 75%;
     padding: 1rem;
-    background-color: #2C344B;
     border-radius: 1rem;
 }
