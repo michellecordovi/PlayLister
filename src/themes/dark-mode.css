@@ -43,3 +43,7 @@ header{
 .playlist-section {
     background-color: #2C344B;
 }
+
+#playlist-name-input {
+    color: white;
+}

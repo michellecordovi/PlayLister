@@ -1,7 +1,10 @@
 function Playlist(){
     return (
         <section className="playlist-section">
-            <input id="playlist-name" type="text" placeholder="Name your playlist..." />
+            <form>
+                <input id="playlist-name-input" type="text" placeholder="Name your playlist..." />
+                <input id="playlist-submit" type="submit" value="Create Playlist"/>
+            </form>
         </section>
     )
 }

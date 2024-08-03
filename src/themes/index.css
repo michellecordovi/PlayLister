@@ -44,6 +44,7 @@ nav {
     justify-content: space-between;
 
     #login-button {
+        font-family: inherit;
         width: auto;
         height: 50px;
         padding: 1.5rem;
@@ -106,6 +107,7 @@ form {
 
     #searchInput,
     #searchInputSubmit {
+        font-family: inherit;
         height: 60px;
         font-size: 18px;
         padding: 5px 30px;
@@ -138,7 +140,52 @@ main {
 .results-section,
 .playlist-section {
     height: 90%;
-    width: 75%;
-    padding: 1rem;
+    width: 80%;
+    padding: 1rem 2rem;
     border-radius: 1rem;
+    display: grid;
+    grid-template: 1fr;
+    justify-items: center;
 }
+
+.playlist-section form {
+    height: fit-content;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-items: center;
+    align-items: start;
+}
+
+#playlist-name-input {
+    background-color: inherit;
+    font-family: inherit;
+    width: 100%;
+    height: auto;
+    border: none;
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+}
+
+#playlist-name-input::placeholder{
+    font-style: italic;
+    text-align: center;
+}
+
+#playlist-submit {
+    background-color:#35e6ae;
+    width: auto;
+    height: 40px;
+    padding: 5px 10px;
+    font-size: 1rem;
+    font-family: inherit;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+}
+
+input:focus {
+    border: none;
+    outline: none;
+}
+
