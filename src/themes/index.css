@@ -141,11 +141,14 @@ main {
 .playlist-section {
     height: 90%;
     width: 80%;
-    padding: 1rem 2rem;
+    padding: 1rem 0.5rem;
     border-radius: 1rem;
-    display: grid;
-    grid-template: 1fr;
-    justify-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.results-section h3{
+    margin-bottom: 1rem;
 }
 
 .playlist-section form {
@@ -189,3 +192,37 @@ input:focus {
     outline: none;
 }
 
+
+.tracklist{
+    display: grid;
+    grid-template-columns: 1fr;
+    max-height: 100%;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: white #2C344B;
+}
+
+.track {
+    width: 100%;
+    padding: 8px 0px;
+    font-size: 1rem;
+    display: grid;
+    grid-template-columns: 65px auto 1.25rem;
+    column-gap: 0.5rem;
+    align-items: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.258);
+
+    .album-cover{
+        height: 65px;
+        width: 65px;
+    }
+
+    .add-track-button{
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+    .add-track-button:hover{
+        opacity: 0.6;
+    }
+}
