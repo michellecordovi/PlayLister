@@ -1,10 +1,11 @@
+/* eslint-disable react/prop-types */
 import Results from './Results';
 import Playlist from "./Playlist";
 
-function ResultsSection() {
+function ResultsSection({tracks}) {
     return (
         <main>
-            <Results/>
+            <Results tracks={tracks}/>
             <Playlist/>
         </main>
     )
