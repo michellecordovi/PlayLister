@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-function Track (props){
+function PlaylistTrack (props){
     return (
         <div className="track">
             <img className="album-cover" src={props.src} alt={props.album + " cover."} />
@@ -7,9 +7,9 @@ function Track (props){
                 <h4>{props.song}</h4>
                 <p>{`${props.artist} | ${props.album}`}</p>
             </div>
-            <div className="add-track-button" onClick={props.onAddTrack}>+</div>
+            <div className="delete-track-button" onClick={props.onAddTrack}>x</div>
         </div>
     )
 }
 
-export default Track;
+export default PlaylistTrack;

@@ -1,8 +1,10 @@
+import {useState, useEffect} from 'react';
 import Header from './components/Header'
 import ResultsSection from "./components/ResultsSection";
 
 
 function App() {
+    const [playlistTracks, setPlaylistTracks] = useState([]);
 
     const tracks = [
         {
@@ -19,53 +21,23 @@ function App() {
             artist: "Talking Heads",
             album: "Remain In Light",
             src: "https://upload.wikimedia.org/wikipedia/en/2/2d/TalkingHeadsRemaininLight.jpg"
-        },
-
-        {
-            id: 2,
-            name: "Born Under Punches",
-            artist: "Talking Heads",
-            album: "Remain In Light",
-            src: "https://upload.wikimedia.org/wikipedia/en/2/2d/TalkingHeadsRemaininLight.jpg"
-        },
-
-        {
-            id: 2,
-            name: "Born Under Punches",
-            artist: "Talking Heads",
-            album: "Remain In Light",
-            src: "https://upload.wikimedia.org/wikipedia/en/2/2d/TalkingHeadsRemaininLight.jpg"
-        },
-
-        {
-            id: 2,
-            name: "Born Under Punches",
-            artist: "Talking Heads",
-            album: "Remain In Light",
-            src: "https://upload.wikimedia.org/wikipedia/en/2/2d/TalkingHeadsRemaininLight.jpg"
-        },
-
-        {
-            id: 2,
-            name: "Born Under Punches",
-            artist: "Talking Heads",
-            album: "Remain In Light",
-            src: "https://upload.wikimedia.org/wikipedia/en/2/2d/TalkingHeadsRemaininLight.jpg"
-        },
-
-        {
-            id: 2,
-            name: "Born Under Punches",
-            artist: "Talking Heads",
-            album: "Remain In Light",
-            src: "https://upload.wikimedia.org/wikipedia/en/2/2d/TalkingHeadsRemaininLight.jpg"
         }
     ]
+
+    function addTrackToPlaylist (track){
+        setPlaylistTracks((prevTracks) => {
+           return [...prevTracks, track]
+        })
+    }
+
+    useEffect(() => {
+        console.log(playlistTracks)
+    }, [playlistTracks])
 
     return (
         <>        
             <Header/>
-            <ResultsSection tracks={tracks}/>
+            <ResultsSection tracks={tracks} playlistTracks={playlistTracks} onAddTrack={addTrackToPlaylist} />
         </>
     )
 }

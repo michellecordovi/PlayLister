@@ -2,11 +2,11 @@
 import Results from './Results';
 import Playlist from "./Playlist";
 
-function ResultsSection({tracks}) {
+function ResultsSection({tracks, onAddTrack, playlistTracks}) {
     return (
         <main>
-            <Results tracks={tracks}/>
-            <Playlist/>
+            <Results tracks={tracks} onAddTrack={onAddTrack} />
+            <Playlist playlistTracks={playlistTracks}/>
         </main>
     )
 }
