@@ -30,6 +30,13 @@ function App() {
         })
     }
 
+    function removeTrackFromPlaylist(track){
+        setPlaylistTracks((prevTracks) => {
+            let indexOfTrack = prevTracks.indexOf(track);
+            return prevTracks.splice(indexOfTrack, 1)
+        })
+    }
+
     useEffect(() => {
         console.log(playlistTracks)
     }, [playlistTracks])
@@ -37,7 +44,7 @@ function App() {
     return (
         <>        
             <Header/>
-            <ResultsSection tracks={tracks} playlistTracks={playlistTracks} onAddTrack={addTrackToPlaylist} />
+            <ResultsSection tracks={tracks} playlistTracks={playlistTracks} onAddTrack={addTrackToPlaylist}  onDeleteTrack={removeTrackFromPlaylist}/>
         </>
     )
 }

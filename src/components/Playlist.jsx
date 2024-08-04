@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import PlaylistTrack from './PlaylistTrack'
 
-function Playlist({playlistTracks}){
+function Playlist({playlistTracks, onDeleteTrack}){
     return (
         <section className="playlist-section">
             <form>
@@ -11,7 +11,7 @@ function Playlist({playlistTracks}){
 
         <div className="tracklist">
            {playlistTracks.map((track)=> (
-            <PlaylistTrack key={track.id} artist={track.artist} song={track.name} album={track.album} src={track.src} />
+            <PlaylistTrack key={track.id} artist={track.artist} song={track.name} album={track.album} src={track.src} onDeleteTrack={onDeleteTrack} />
            ))}
         </div>
 
