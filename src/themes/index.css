@@ -151,48 +151,6 @@ main {
     margin-bottom: 1rem;
 }
 
-.playlist-section form {
-    height: fit-content;
-    display: grid;
-    grid-template-columns: 1fr;
-    justify-items: center;
-    align-items: center;
-    align-items: start;
-}
-
-#playlist-name-input {
-    background-color: inherit;
-    font-family: inherit;
-    width: 100%;
-    height: auto;
-    border: none;
-    font-size: 1.75rem;
-    margin-bottom: 1rem;
-}
-
-#playlist-name-input::placeholder{
-    font-style: italic;
-    text-align: center;
-}
-
-#playlist-submit {
-    background-color:#35e6ae;
-    width: auto;
-    height: 40px;
-    padding: 5px 10px;
-    font-size: 1rem;
-    font-family: inherit;
-    border-radius: 30px;
-    border: none;
-    cursor: pointer;
-}
-
-input:focus {
-    border: none;
-    outline: none;
-}
-
-
 .tracklist{
     display: grid;
     grid-template-columns: 1fr;
@@ -225,4 +183,56 @@ input:focus {
     .add-track-button:hover{
         opacity: 0.6;
     }
+}
+
+/* PLAYLIST SECTION */
+.playlist-section form {
+    height: fit-content;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-items: center;
+    align-items: start;
+}
+
+#playlist-name-input {
+    background-color: inherit;
+    font-family: inherit;
+    text-align: center;
+    width: 100%;
+    height: auto;
+    border: none;
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+}
+
+#playlist-name-input::placeholder{
+    font-style: italic;
+    text-align: center;
+}
+
+#playlist-submit {
+    background-color:#35e6ae;
+    width: auto;
+    height: 40px;
+    margin-bottom: 1rem;
+    padding: 5px 10px;
+    font-size: 1rem;
+    font-family: inherit;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+}
+
+input:focus {
+    border: none;
+    outline: none;
+}
+
+.delete-track-button{
+    cursor: pointer;
+}
+
+.delete-track-button:hover{
+    opacity: 0.6;
 }
