@@ -25,7 +25,7 @@ export const initiateAuth = async () => {
   const codeChallenge = base64encode(hashBuffer);
 
   const clientId = "1878e5a6287e4a42a9857eaa292f8385";
-  const redirectUri = "http://localhost:5174/";
+  const redirectUri = "http://localhost:5173/";
   const scope = "user-read-private user-read-email";
   const authUrl = new URL("https://accounts.spotify.com/authorize");
 
@@ -47,7 +47,7 @@ export const initiateAuth = async () => {
 export const getToken = async (code) => {
   const codeVerifier = localStorage.getItem("code_verifier");
   const clientId = "1878e5a6287e4a42a9857eaa292f8385";
-  const redirectUri = "http://localhost:5174/";
+  const redirectUri = "http://localhost:5173/";
   const tokenUrl = "https://accounts.spotify.com/api/token";
 
   const payload = {

@@ -7,6 +7,7 @@ const checkAuthCode = async () => {
   
     if (code) {
       const accessToken = await getToken(code);
+      alert(`your access token is ${localStorage.access_token}`)
       return accessToken;
     } else {
       initiateAuth();

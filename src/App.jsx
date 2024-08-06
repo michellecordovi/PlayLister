@@ -1,7 +1,6 @@
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 import Header from './components/Header'
 import ResultsSection from "./components/ResultsSection";
-
 
 function App() {
     const [playlistTracks, setPlaylistTracks] = useState([]);
@@ -36,10 +35,6 @@ function App() {
             return prevTracks.splice(indexOfTrack, 1)
         })
     }
-
-    useEffect(() => {
-        console.log(playlistTracks)
-    }, [playlistTracks])
 
     return (
         <>        
