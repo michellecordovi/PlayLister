@@ -12,6 +12,10 @@ function App() {
         console.log(tracks)
     }, [tracks])
 
+    useEffect(()=> {
+        console.log(playlistTracks)
+    }, [playlistTracks])
+
     function addTrackToPlaylist (track){
         setPlaylistTracks((prevTracks) => {
            return [...prevTracks, track]

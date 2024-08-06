@@ -11,7 +11,7 @@ function Playlist({playlistTracks, onDeleteTrack}){
 
         <div className="tracklist">
            {playlistTracks.map((track)=> (
-            <PlaylistTrack key={track.id} artist={track.artists[0].name} song={track.name} album={track.album.name} src={track.album.images[0].url} onDeleteTrack={onDeleteTrack} />
+            <PlaylistTrack key={track.id} artist={track.artists[0].name} song={track.name} album={track.album.name} src={track.album.images[0].url} uri={track.uri} onDeleteTrack={onDeleteTrack} />
            ))}
         </div>
 
