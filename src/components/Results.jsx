@@ -8,7 +8,7 @@ function Results({tracks, onAddTrack}){
 
             <div className="tracklist">
                 {tracks.map((track)=> (
-                    <Track key={track.id} artist={track.artist} song={track.name} album={track.album} src={track.src} onAddTrack={()=> onAddTrack(track)} />
+                    <Track key={track.id} artist={track.artists[0].name} song={track.name} album={track.album.name} src={track.album.images[0].url} onAddTrack={()=> onAddTrack(track)} />
                 ))}
             </div>
         </section>

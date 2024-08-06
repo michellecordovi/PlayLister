@@ -1,11 +1,11 @@
 import Nav from './Nav';
 import Banner from './Banner';
 
-function Header () {
+function Header ({searchResults, setSearchResults}) {
     return (
         <header>
             <Nav/>
-            <Banner/>
+            <Banner searchResults = {searchResults} setSearchResults={setSearchResults}/>
         </header>
     )
 }

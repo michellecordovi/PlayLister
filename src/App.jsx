@@ -1,27 +1,16 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import Header from './components/Header'
 import ResultsSection from "./components/ResultsSection";
 
 function App() {
     const [playlistTracks, setPlaylistTracks] = useState([]);
+    const [searchResults, setSearchResults] = useState([])
 
-    const tracks = [
-        {
-            id: 1,
-            name: "Pink Pony Club",
-            artist: "Chappel Roan",
-            album: "The Rise and Fall of a Midwest Princess",
-            src: 'https://media.pitchfork.com/photos/64ff1676931354660ba71d8b/master/w_1280%2Cc_limit/Chappell-Roan-Princess.jpg'
-        },
+    let tracks = searchResults;
 
-        {
-            id: 2,
-            name: "Born Under Punches",
-            artist: "Talking Heads",
-            album: "Remain In Light",
-            src: "https://upload.wikimedia.org/wikipedia/en/2/2d/TalkingHeadsRemaininLight.jpg"
-        }
-    ]
+    useEffect(()=> {
+        console.log(tracks)
+    }, [tracks])
 
     function addTrackToPlaylist (track){
         setPlaylistTracks((prevTracks) => {
@@ -38,7 +27,7 @@ function App() {
 
     return (
         <>        
-            <Header/>
+            <Header searchResults = {searchResults} setSearchResults={setSearchResults}/>
             <ResultsSection tracks={tracks} playlistTracks={playlistTracks} onAddTrack={addTrackToPlaylist}  onDeleteTrack={removeTrackFromPlaylist}/>
         </>
     )

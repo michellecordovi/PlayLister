@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 
-function SearchBar(){
+function SearchBar({searchResults, setSearchResults}){
     const [searchInput, setSearchInput] = useState('');
-    const [searchResults, setSearchResults] = useState([])
     const baseUrl = 'https://api.spotify.com/v1/search/'
 
     const handleSearchClick = async (event) => {
@@ -26,9 +25,10 @@ function SearchBar(){
         }
       };
     
-      useEffect(() => {
-        console.log(searchResults);
-      }, [searchResults]);
+    useEffect(() => {
+     console.log(searchInput);
+    }, [searchInput]);
+
 
     function handleInputChange(event) {
         setSearchInput(event.target.value);
