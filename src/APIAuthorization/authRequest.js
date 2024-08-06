@@ -44,6 +44,8 @@ export const initiateAuth = async () => {
   window.location.href = authUrl.toString();
 };
 
+
+
 export const getToken = async (code) => {
   const codeVerifier = localStorage.getItem("code_verifier");
   const clientId = "1878e5a6287e4a42a9857eaa292f8385";
@@ -64,10 +66,22 @@ export const getToken = async (code) => {
     }),
   };
 
-  const response = await fetch(tokenUrl, payload);
-  const data = await response.json();
+  try {
+    const response = await fetch(tokenUrl, payload);
+    const data = await response.json();
 
-  localStorage.setItem("access_token", data.access_token);
-  return data.access_token;
+    console.log("Token response data:", data);  // Add this line to debug
+
+    if (data.access_token) {
+      localStorage.setItem("access_token", data.access_token);
+      return data.access_token;
+    } else {
+      console.error("No access token in response:", data);
+      return null;
+    }
+  } catch (error) {
+    console.error("Error fetching token:", error);
+    return null;
+  }
 };
 

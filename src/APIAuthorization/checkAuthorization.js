@@ -7,8 +7,12 @@ const checkAuthCode = async () => {
   
     if (code) {
       const accessToken = await getToken(code);
-      alert(`your access token is ${localStorage.access_token}`)
-      return accessToken;
+      if (accessToken) {
+        console.log("Access token obtained:", accessToken);
+        return accessToken;
+      } else {
+        console.error("Failed to obtain access token.");
+      }
     } else {
       initiateAuth();
     }

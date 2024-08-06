@@ -1,11 +1,17 @@
 /* eslint-disable react/prop-types */
+import { initiateAuth, getToken } from "../APIAuthorization/authRequest";
 import checkAuthCode from "../APIAuthorization/checkAuthorization";
-// import { initiateAuth } from "../APIAuthorization/authRequest";
+
 
 function LoginButton() {
-    function handleClick() {
-      checkAuthCode();
-    }
+    async function handleClick() {
+        const storedToken = localStorage.getItem("access_token");
+        if (!storedToken || storedToken === "undefined") {
+          await checkAuthCode();
+        } else {
+          console.log("Access token already exists:", storedToken);
+        }
+      }
 
     return (
         <button id="login-button" onClick={handleClick} >
