@@ -6,20 +6,26 @@ function SearchBar({searchResults, setSearchResults}){
 
     const handleSearchClick = async (event) => {
         event.preventDefault();
-    
+      
+        const accessToken = localStorage.getItem("access_token");
+        if (!accessToken) {
+          console.error("No access token found.");
+          return;
+        }
+      
         const url = `${baseUrl}?q=${encodeURIComponent(searchInput)}&type=track&limit=10`;
-    
+      
         const response = await fetch(url, {
           method: 'GET',
           headers: {
-            'Authorization': `Bearer ${localStorage.access_token}`,
+            'Authorization': `Bearer ${accessToken}`,
             'Content-Type': 'application/json'
           }
         });
-    
+      
         if (response.ok) {
           const data = await response.json();
-          setSearchResults(data.tracks.items); // Set the search results to the track items
+          setSearchResults(data.tracks.items);
         } else {
           console.error('Search request failed', response.status, response.statusText);
         }

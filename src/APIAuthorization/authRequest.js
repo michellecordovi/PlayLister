@@ -25,7 +25,7 @@ export const initiateAuth = async () => {
   const codeChallenge = base64encode(hashBuffer);
 
   const clientId = "1878e5a6287e4a42a9857eaa292f8385";
-  const redirectUri = "http://localhost:5173/";
+  const redirectUri = "http://localhost:5174/";
   const scope = "user-read-private user-read-email";
   const authUrl = new URL("https://accounts.spotify.com/authorize");
 
@@ -44,12 +44,10 @@ export const initiateAuth = async () => {
   window.location.href = authUrl.toString();
 };
 
-
-
 export const getToken = async (code) => {
   const codeVerifier = localStorage.getItem("code_verifier");
   const clientId = "1878e5a6287e4a42a9857eaa292f8385";
-  const redirectUri = "http://localhost:5173/";
+  const redirectUri = "http://localhost:5174/";
   const tokenUrl = "https://accounts.spotify.com/api/token";
 
   const payload = {
@@ -66,22 +64,9 @@ export const getToken = async (code) => {
     }),
   };
 
-  try {
-    const response = await fetch(tokenUrl, payload);
-    const data = await response.json();
+  const response = await fetch(tokenUrl, payload);
+  const data = await response.json();
 
-    console.log("Token response data:", data);  // Add this line to debug
-
-    if (data.access_token) {
-      localStorage.setItem("access_token", data.access_token);
-      return data.access_token;
-    } else {
-      console.error("No access token in response:", data);
-      return null;
-    }
-  } catch (error) {
-    console.error("Error fetching token:", error);
-    return null;
-  }
+  localStorage.setItem("access_token", data.access_token);
+  return data.access_token;
 };
-
