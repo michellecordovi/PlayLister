@@ -1,9 +1,18 @@
 /* eslint-disable react/prop-types */
+import {useState} from 'react'
 import PlaylistTrack from './PlaylistTrack'
 
 function Playlist({playlistTracks, onDeleteTrack}){
+    const [playlistName, setPlaylistName] = useState("")
     let userId= "";
     let playlistId = "";
+    let newPlaylistUris = playlistTracks.map(track => {
+        return track.uri
+    })
+
+    function changePlaylistName() {
+        setPlaylistName(document.getElementById("playlist-name-input").value)
+    }
 
     async function getUserId(){
         const accessToken = localStorage.access_token
@@ -40,7 +49,8 @@ function Playlist({playlistTracks, onDeleteTrack}){
                 body: JSON.stringify({
                     name: name,
                     description: "new playlist",
-                    public: true,
+                    public: false,
+                    collaborative: true
                 }),
             });
     
@@ -48,6 +58,38 @@ function Playlist({playlistTracks, onDeleteTrack}){
                 const data = await response.json();
                 playlistId = data.id;
                 console.log("Playlist ID:", playlistId);
+                console.log(playlistTracks);
+                console.log(newPlaylistUris)
+            } else {
+                // Ensure the response body is parsed to handle error data
+                const errorData = await response.json();
+                console.error('Playlist creation failed', response.status, response.statusText, errorData);
+            }
+        } catch (error) {
+            console.error('Network or other error occurred', error);
+        }
+    }
+
+    async function addItemsToPlaylist(){
+        const accessToken = localStorage.access_token;
+        const url = `https://api.spotify.com/v1/playlists/${playlistId}/tracks`;
+    
+        try {
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${accessToken}`,
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    uris: newPlaylistUris,
+                    position: 0
+                }),
+            });
+    
+            if (response.ok) {
+                const data = await response.json();
+                console.log(data.snapshot_id)
             } else {
                 // Ensure the response body is parsed to handle error data
                 const errorData = await response.json();
@@ -58,18 +100,17 @@ function Playlist({playlistTracks, onDeleteTrack}){
         }
     }
     
-    
-
     async function handleCreatePlaylist(event) {
         event.preventDefault();
         await getUserId();
-        createPlaylist(document.getElementById("playlist-name-input").value);
+        await createPlaylist(document.getElementById("playlist-name-input").value);
+        await addItemsToPlaylist();
     }
 
     return (
         <section className="playlist-section">
             <form onSubmit={handleCreatePlaylist}>
-                <input id="playlist-name-input" type="text" placeholder="Name your playlist..." />
+                <input id="playlist-name-input" type="text" placeholder="Name your playlist..." value={playlistName} onChange={changePlaylistName}/>
                 <input id="playlist-submit" type="submit" value="Create Playlist"/>
             </form>
 

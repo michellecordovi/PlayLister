@@ -3,7 +3,7 @@ import { initiateAuth, getToken, checkAndRefreshToken } from "../APIAuthorizatio
 function LoginButton() {
     async function handleClick() {
       const accessToken = localStorage.getItem("access_token")
-      if(!accessToken){
+      if(!accessToken || accessToken === "undefined"){
         await initiateAuth();
       } else {
         await checkAndRefreshToken()
