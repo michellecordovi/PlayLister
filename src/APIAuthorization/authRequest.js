@@ -26,7 +26,7 @@ export const initiateAuth = async () => {
 
   const clientId = "1878e5a6287e4a42a9857eaa292f8385";
   const redirectUri = "http://localhost:5174/";
-  const scope = "user-read-private user-read-email";
+  const scope = "user-read-private user-read-email playlist-modify-public playlist-modify-private playlist-read-private";
   const authUrl = new URL("https://accounts.spotify.com/authorize");
 
   window.localStorage.setItem("code_verifier", codeVerifier);

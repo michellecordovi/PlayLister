@@ -5,13 +5,9 @@ import checkAuthCode from "../APIAuthorization/checkAuthorization";
 
 function LoginButton() {
     async function handleClick() {
-        const storedToken = localStorage.getItem("access_token");
-        if (!storedToken || storedToken === "undefined") {
-          await checkAuthCode();
-        } else {
-          console.log("Access token already exists:", storedToken);
-        }
-      }
+        initiateAuth();
+        console.log(localStorage.access_token)
+    }
 
     return (
         <button id="login-button" onClick={handleClick} >
