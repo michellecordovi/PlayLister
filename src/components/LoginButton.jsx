@@ -1,12 +1,13 @@
-/* eslint-disable react/prop-types */
-import { initiateAuth, getToken } from "../APIAuthorization/authRequest";
-import checkAuthCode from "../APIAuthorization/checkAuthorization";
-
+import { initiateAuth, getToken, checkAndRefreshToken } from "../APIAuthorization/authRequest";
 
 function LoginButton() {
     async function handleClick() {
-        initiateAuth();
-        console.log(localStorage.access_token)
+      const accessToken = localStorage.getItem("access_token")
+      if(!accessToken){
+        await initiateAuth();
+      } else {
+        await checkAndRefreshToken()
+      }
     }
 
     return (

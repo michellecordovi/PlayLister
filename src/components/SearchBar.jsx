@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { checkAndRefreshToken } from "../APIAuthorization/authRequest";
 
 function SearchBar({searchResults, setSearchResults}){
     const [searchInput, setSearchInput] = useState('');
@@ -7,12 +8,9 @@ function SearchBar({searchResults, setSearchResults}){
     const handleSearchClick = async (event) => {
         event.preventDefault();
       
-        const accessToken = localStorage.getItem("access_token");
-        if (!accessToken) {
-          console.error("No access token found.");
-          return;
-        }
-      
+        await checkAndRefreshToken();
+
+        const accessToken = localStorage.getItem('access_token')
         const url = `${baseUrl}?q=${encodeURIComponent(searchInput)}&type=track&limit=10`;
       
         const response = await fetch(url, {
