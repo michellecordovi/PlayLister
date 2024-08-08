@@ -24,8 +24,7 @@ function App() {
 
     function removeTrackFromPlaylist(track){
         setPlaylistTracks((prevTracks) => {
-            let indexOfTrack = prevTracks.indexOf(track);
-            return prevTracks.splice(indexOfTrack, 1)
+            return prevTracks.filter(currentTrack => currentTrack.id !== track.id)
         })
     }
 
