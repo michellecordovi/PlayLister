@@ -19,6 +19,7 @@ const base64encode = (input) => {
     .replace(/\//g, "_");
 };
 
+
 export const initiateAuth = async () => {
   const codeVerifier = generateRandomString(64);
   const hashBuffer = await sha256(codeVerifier);
