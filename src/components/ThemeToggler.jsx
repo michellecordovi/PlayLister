@@ -7,10 +7,10 @@ function ThemeToggler() {
     useEffect(()=>{
         if(mode === 'dark') {
             toggleRef.current.style.justifyContent="flex-end";
-            document.getElementById("theme-stylesheet").setAttribute("href", "./src/themes/dark-mode.css");
+            document.getElementById("theme-stylesheet").setAttribute("href", "/themes/dark-mode.css");
         } else if(mode === 'light'){
             toggleRef.current.style.justifyContent="flex-start";
-            document.getElementById("theme-stylesheet").setAttribute("href", "./src/themes/light-mode.css");
+            document.getElementById("theme-stylesheet").setAttribute("href", "/themes/light-mode.css");
         }
 
         console.log(mode)
